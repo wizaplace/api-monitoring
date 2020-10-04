@@ -41,9 +41,8 @@ class ChartFormatter implements FormatterInterface
         $this->markers = [];
     }
 
-    public function display(float $value)
+    public function display(float $value): void
     {
-
         $y = intval(1000 * $value);
 
         $this->markers[] = $y;
@@ -61,5 +60,4 @@ class ChartFormatter implements FormatterInterface
         $chart->wait();
         $this->linechart->clearAllMarkers();
     }
-
 }

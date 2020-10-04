@@ -27,7 +27,7 @@ class TextFormatter implements FormatterInterface
         $this->style->title($title);
     }
 
-    public function display(float $value)
+    public function display(float $value): void
     {
         $this->style->text(sprintf("%s %.6f", date('c'), $value));
     }

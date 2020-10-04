@@ -2,3 +2,6 @@ parameters:
 	level: 8
 	paths:
 		- src
+	ignoreErrors:
+		- '#Unreachable statement - code above always terminates.#'
+		- '#Constructor of class App\\\Formatter\\\ChartFormatter has an unused parameter (.*)#'
