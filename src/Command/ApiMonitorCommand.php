@@ -24,7 +24,7 @@ class ApiMonitorCommand extends Command
      */
     private $formatter;
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Monitor API performance in real time')
@@ -44,6 +44,11 @@ class ApiMonitorCommand extends Command
         $this->formatter = new $formatterClass($input, $output, "API Monitoring");
 
         $url = $input->getArgument('url');
+
+        if (false === \is_string($url)) {
+            throw new \RuntimeException("url is required");
+        }
+
         $client = new CurlHttpClient();
 
         while (true) {
